@@ -1,0 +1,823 @@
+.container {
+    width: 100%;
+    height: auto;
+    top:0;
+    left:0;
+    display: grid;
+    grid-template-columns: 100px 250px 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: 
+        "logo menu start";
+    z-index: 1;
+}
+
+.container2 {
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+    display: grid;
+    grid-template-columns: 100px 250px 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: 
+        "midia texto imagem";
+}
+
+.container3 {
+    width: 100%;
+    height: auto;
+    background-color: black;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: 
+        "card1 card2 card3";
+}
+
+.display {
+    display: none;
+}
+
+.container4 {
+    width: 100%;
+    height: auto;
+    text-align: center;
+    background-color: black;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: 
+        "img1 get img3";
+}
+
+.container5 {
+    width: 100%;
+    height: auto;
+    text-align: center;
+    background-color: black;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas:
+        "footer1 footer2";
+}
+
+.fixed {
+    position: fixed;
+}
+
+.logo {grid-area: logo;}
+.menu {grid-area: menu;}
+.start {grid-area: start;}
+.midia {grid-area: midia;}
+.texto {grid-area: texto;}
+.imagem {grid-area: imagem;}
+.card1 {grid-area: card1;}
+.card2 {grid-area: card2;}
+.card3 {grid-area: card3;}
+
+.img1 {grid-area: img1;}
+.get {grid-area: get;}
+.img3 {grid-area: img3;}
+
+.footer1 {grid-area: footer1;}
+.footer2 {grid-area: footer2;}
+
+p {font-family: Slab; color: white;}
+h1 {font-family: Slab; color: tomato; font-size: 48px; margin-bottom: 40px;}
+
+/* - FONTES ------------------------------------------------------------------------------*/
+
+@font-face {font-family: 'Apercu';src: url('../fontes/Apercu/Apercu.otf')/*Para navegadores Internet Explorer*/;font-weight: bold;font-style: bold;}@font-face {font-family: 'Apercu';src: url('../fontes/Apercu/Apercu.otf') /*Para os demais navegadores*/;font-weight: bold;font-style: bold;}
+@font-face {font-family: 'Slab';src: url('../fontes/Roboto_Slab/RobotoSlab-Regular.ttf')/*Para navegadores Internet Explorer*/;font-weight: normal;font-style: normal;}@font-face {font-family: 'Slab';src: url('../fontes/Roboto_Slab/RobotoSlab-Regular.ttf') /*Para os demais navegadores*/;font-weight: normal;font-style: normal;}
+
+/* - logo ------------------------------------------------------------------------------*/
+
+.logomarca {
+    margin-top: 20px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+/* - Menu ------------------------------------------------------------------------------*/
+
+.menuUl {
+    margin-top: 30px;
+    display: flex;
+}
+
+.menuLi {
+    padding-right: 20px;
+}
+
+.menuLi a{
+    color: white;
+    font-family: Apercu;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.menuLi a::after{
+    content: '';
+    width: 0;
+    height: 4px;
+    background-color: tomato;
+    display: block;
+    transition: .5s;
+}
+
+.menuUl a:hover::after, .menuUl a.active::after {
+    width: 100%;
+}
+
+/* - Start e IMG ------------------------------------------------------------------------------*/
+
+.start ul {
+    display: flex;
+    float: right;
+}
+
+.getStart{
+    font-weight: bold;
+    text-align: right;
+    color: white;
+    font-size: 24px;
+    margin-top: 30px;
+}
+
+.seta {
+    margin: 24px 20px;
+    color: white;
+}
+
+.seta:hover {
+    transform: rotate(90deg);
+    color:tomato;
+}
+
+/* - IMG WORK ------------------------------------------------------------------------------*/
+
+.work{
+    margin-top: 100px;
+    width: 100%;
+    height: auto;
+}
+
+/* - MIDIA ------------------------------------------------------------------------------*/
+
+.midia ul {
+    margin-top: 74vh;
+}
+
+.midia li {
+    padding-top: 20px;
+    align: center;
+}
+
+.midia ul li img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* - TEXTOS ------------------------------------------------------------------------------*/
+
+.text1 {
+    opacity: 0.5;
+    margin-bottom: 30px;
+    margin-top: 100px;
+}
+
+.titulo1 {
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 50px;
+}
+
+.titulo2::after{
+    content: '';
+    margin-top: 10px;
+    width: 100%;
+    height: 4px;
+    background-color: tomato;
+    display: block;
+    transition: .5s;
+}
+
+.text2 {
+    margin-top: 20px;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: tomato;
+}
+
+.text3 {
+    font-size: 15.5px;;
+    width: 200px;
+}
+
+.text3_01 {
+    opacity: 0.5;
+}
+
+/* - ANIMAÇÕES------------------------------------------------------------------------------*/
+
+.item {
+	opacity: 0;
+	visibility: hidden;
+	transform: translate3d(0,80px,0);
+	position: absolute;
+    top: 0;
+}
+
+.active {
+	opacity: 1;
+	visibility: visible;
+	transition: 3s;
+	position: relative;
+	top: auto;
+	transform: translate3d(0,0px,0);
+}
+
+/* - HISTORY------------------------------------------------------------------------------*/
+
+.container3 img {
+    width: 80%;
+    margin-top: 80px;
+}
+
+.imgConfucio {
+    margin-left: 40px;
+}
+
+.tituloGeral {
+    margin-left: 60px;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: tomato;
+}
+
+.tituloGeral2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: tomato;
+    margin-left: 10px;
+}
+
+.textGeral {
+    margin-left: 60px;
+    opacity: 0.5;
+    width: 300px;
+}
+
+.textGeral2 {
+    margin-top: 10px;
+    margin-left: 60px;
+    font-size: 10px;
+    opacity: 0.2;
+    width: 300px;
+}
+
+.textGeral3 {
+    margin-left: 10px;
+    opacity: 0.5;
+    width: 300px;
+}
+
+.textGeral4 {
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 10px;
+    opacity: 0.2;
+    width: 300px;
+}
+
+/* - HISTORY - ANIMAÇÕES ------------------------------------------------------------------------------*/
+
+.activeText {
+    display: none;
+}
+
+.activeText2 {
+    display: unset;
+}
+
+.activeConfucio {
+    transition: 4s;
+    background: url('../img/confucio.jpg') center no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+.activeSeneca {
+    transition: 4s;
+    background: url('../img/seneca.jpg') center no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+.activeAristoteles {
+    transition: 4s;
+    background: url('../img/AristotelesJpg.jpg') center no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+.tituloAnimation, .textAnimation {
+    display: none;
+}
+
+.tituloAnimation2, .textAnimation2 {
+    display: none;
+}
+
+.tituloAnimation3, .textAnimation3 {
+    display: none;
+}
+
+
+
+.AnimationTitulo {
+    font-size: 48px;
+    text-align: left;
+    color: tomato;
+    font-weight: bold;
+    margin-top: 160px;
+    margin-left: 40px;
+}
+
+.AnimationText {
+    font-size: 13px;
+    text-align: left;
+    margin-top: 20px;
+    margin-left: 40px;
+}
+
+.AnimationTitulo2 {
+    font-size: 48px;
+    text-align: left;
+    color: tomato;
+    font-weight: bold;
+    margin-top: 120px;
+    left: 20px;
+    position: absolute;
+}
+
+.AnimationText2 {
+    text-align: left;
+    font-size: 15px;
+    max-width: 600px;
+    margin-top: 220px;
+    left: 20px;
+    position: absolute;
+}
+
+.AnimationTitulo3 {
+    font-size: 48px;
+    text-align: left;
+    color: tomato;
+    font-weight: bold;
+    margin-top: 120px;
+    left: 20px;
+    position: absolute;
+}
+
+.AnimationText3 {
+    text-align: left;
+    font-size: 15px;
+    margin-top: 220px;
+    left: 20px;
+    max-width: 600px;
+    position: absolute;
+}
+
+.imgConfucio:hover {
+    transition: .3s;
+    width: 400px;
+    cursor: pointer;
+}
+
+.imgSeneca:hover {
+    transition: .3s;
+    width: 400px;
+    cursor: pointer;
+}
+
+.imgAristoteles:hover {
+    transition: .3s;
+    width: 400px;
+    cursor: pointer;
+}
+
+.voltar {
+    color: white;
+    margin-left: 40px;
+    position: absolute;
+}
+
+.voltar:hover {
+    color: tomato;
+    transform: rotate(200deg);
+}
+
+.introducao img {
+	display: block;
+	width: 100%;
+}
+
+.slide {
+	position: relative;
+	overflow: hidden;
+}
+
+.slide > * {
+	width: 100%;
+	position: absolute;
+	opacity: 0;
+	transition: .5s;
+}
+
+.slide > .active {
+	position: relative;
+	opacity: 1;
+}
+
+/* - Get------------------------------------------------------------------------------*/
+
+.stop {
+    display: none;
+}
+
+.tituloStart {
+    margin-top: 120px;
+}
+
+.tituloStart::after{
+    content: '';
+    margin: 10px auto;
+    width: 50%;
+    height: 4px;
+    background-color: tomato;
+    display: block;
+    transition: .5s;
+}
+
+
+.textTrabalho {
+    opacity: 0;
+    transform: translate3d(0px, -50px, 0px);
+    margin-bottom: 20px;
+}
+
+.anime-init {
+    opacity: 1;
+    transition: .3s all ease;
+    transform: translate3d(0px, 0px, 0px);
+}
+
+::-webkit-scrollbar {
+    width:10px;
+    height: 10px;
+}
+     
+
+::-webkit-scrollbar-track {
+    background:rgb(253, 250, 250);
+}
+     
+  
+::-webkit-scrollbar-thumb {
+    background: tomato;
+}
+
+/*- Quadros ---------------------------------------------------------------------------------------------------------------*/
+
+.geral_img {
+    margin-top: 250px;
+    opacity: 0;
+    transform: translate(-50px);
+}
+
+.geral_img2 {
+    margin-top: 250px;
+    opacity: 0;
+    transform: translate(50px);
+}
+
+.anime-init2 {
+    opacity: 1;
+    transition: .8s all ease;
+    transform: translate(0px);
+}
+
+/*- FOOTERS ---------------------------------------------------------------------------------------------------------------*/
+
+.logoFooter {
+    margin-left: 100px;
+    margin-bottom: 40px;
+    display: flex;
+}
+
+.logoTexto {
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.agradecimentos {
+    opacity: 0.5;
+    text-align: left;
+    margin-left: 100px;
+}
+
+.pFooter{
+    text-align: right;
+    margin-bottom: 20px;
+    margin-right: 100px;
+}
+
+.pFooter2{
+    opacity: 0.5;
+    text-align: right;
+    margin-right: 100px;
+}
+
+.linha {
+    margin: 80px auto;
+    width: 30%;
+    height: 4px;
+    background-color: tomato;
+    color: white;
+    border: 1px solid tomato;
+}
+
+.direitos::before {
+    margin: 20px auto;
+    content: "";
+    width: 90%;
+    height: 1px;
+    display: block;
+    background-color: white;
+}
+
+.direitos {
+    font-size: 14px;
+    opacity: 0.5;
+    text-align: center;
+    padding: 40px 0;
+}
+
+/*- Celular --------------------------------------------------------------------------------------------*/
+
+@media screen and (max-width: 720px){
+    .imagem {
+        display: none;
+    }
+    .start {
+        display: none;
+    }
+
+    .texto3 {
+        width: 100vh;
+    }
+
+    .container3 {
+       display: flex;
+       flex-flow: column nowrap;
+    }
+
+       
+    .imgConfucio, .imgSeneca, .imgAristoteles  {
+        max-width: 300px;
+    }
+
+    .imgSeneca, .imgAristoteles  {
+        margin-left: 40px;
+    }
+    
+    .tituloGeral {
+        margin-left: 0px;
+        text-align: center;
+        font-size: 24px;
+        margin-bottom: 20px;
+        color: tomato;
+    }
+    
+    .tituloGeral2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+        color: tomato;
+        margin: 0 auto;
+        text-align: center;
+    }
+    
+    .textGeral {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        opacity: 0.5;
+        max-width: 400px;
+    }
+    
+    .textGeral2 {
+        margin-top: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        font-size: 8px;
+        opacity: 0.2;
+        width: 100%;
+    }
+    
+    .textGeral3 {
+        margin-left: auto;
+        margin-right: auto;
+        opacity: 0.5;
+        width: 300px;
+    }
+    
+    .textGeral4 {
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 10px;
+        opacity: 0.2;
+        width: 300px;
+    }
+
+    .activeConfucio {
+        transition: 4s;
+        background: url('../img/confucio_blur.jpg') center no-repeat;
+        background-size: cover;
+    }
+    
+    .activeSeneca {
+        transition: 4s;
+        background: url('../img/seneca.jpg') center no-repeat;
+        background-size: cover;
+    }
+    
+    .activeAristoteles {
+        transition: 4s;
+        background: url('../img/AristotelesJpg.jpg') center no-repeat;
+        background-size: cover;
+    }
+
+    .AnimationTitulo {
+        font-size: 24px;
+        text-align: left;
+        color: tomato;
+        font-weight: bold;
+        margin-top: 120px;
+        margin-left: 20px;
+    }
+    
+    .AnimationText {
+        font-size: 13px;
+        text-align: left;
+        margin-top: 20px;
+        margin-left: 20px;
+    }
+    
+    .AnimationTitulo2 {
+        font-size: 24px;
+        text-align: left;
+        color: tomato;
+        font-weight: bold;
+        margin-top: 120px;
+    }
+    
+    .AnimationText2 {
+        font-size: 13px;
+        text-align: left;
+        margin-top: 20px;
+        max-width: 600px;
+    }
+    
+    .AnimationTitulo3 {
+        font-size: 48px;
+        text-align: left;
+        color: tomato;
+        font-weight: bold;
+        margin-top: 120px;
+        margin-right: 150vh;
+        position: relative;
+    }
+    
+    .AnimationText3 {
+        text-align: left;
+        margin-top: 20px;
+        max-width: 600px;
+        position: relative;
+    }
+
+    .card1, .card2, .card3 {
+        flex: 1;
+    }
+
+    .container4 {
+        display: grid;
+        max-width: 100%;
+    }
+
+    #get {
+        flex: 1;
+    }
+
+    .textTrabalho {
+        opacity: 1;
+        transform: none;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .pAnime {
+        width: 300px;
+    }
+
+    .anime-init {
+        opacity: 1;
+        transition: none;
+        transform: none;
+        max-width: 100%;
+    }
+
+    .img1, .img2 {
+        display: none;
+    }
+
+    .container5{
+        display: flex;
+        flex-flow: column nowrap;
+    }
+
+    .footer1, .footer2 {
+        flex: 1;
+    }
+
+    .footer2 {
+        margin-bottom: 20px;
+    }
+
+    .logoFooter {
+        margin-bottom: 40px;
+    }
+    
+    .logoTexto {
+        margin-top: 10px;
+        margin-left: 20px;
+    }
+    
+    .agradecimentos {
+        opacity: 0.5;
+        text-align: center;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    
+    .pFooter{
+        margin-top: 40px;
+        text-align: center;
+        color: tomato;
+        margin-right: auto;
+        margin-left: auto;
+        margin-bottom: 20px;
+    }
+    
+    .pFooter2{
+        opacity: 0.5;
+        text-align: center;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    
+    .linha {
+        margin: 80px auto;
+        width: 30%;
+        height: 4px;
+        background-color: tomato;
+        color: white;
+        border: 1px solid tomato;
+    }
+    
+    .direitos::before {
+        margin: 20px auto;
+        content: "";
+        width: 90%;
+        height: 1px;
+        display: block;
+        background-color: white;
+    }
+    
+    .direitos {
+        font-size: 14px;
+        opacity: 0.5;
+        text-align: center;
+        padding: 40px 0;
+    }
+
+    .direitosFooter {
+        display: flex;
+        flex-flow: column nowrap;
+    }
+
+
+}
